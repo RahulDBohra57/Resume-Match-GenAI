@@ -14,12 +14,12 @@ This project is an AI-driven Applicant Tracking System (ATS) analyzer that evalu
 
 The system is designed for job seekers, recruiters, and career coaches to assess and improve resume relevance before applying.
 
-### What This App Does:
+## What This App Does:
 
 ![ChatGPT Image Jan 14, 2026, 06_17_58 PM](https://github.com/user-attachments/assets/2b202ea3-ae69-45bb-917a-151d6b7b8e72)
 
 
-### Tech Stack:
+## Tech Stack:
 Layer:	Technology
 Frontend:	Streamlit
 LLM:	Google Gemini
@@ -27,7 +27,7 @@ PDF Parsing:	PyPDF
 Prompt Engineering:	Custom ATS prompt
 Hosting:	Streamlit Cloud
 
-### Use Cases:
+## Use Cases:
 - Job seekers optimizing resumes
 - Recruiters screening profiles
 - Career coaching platforms
