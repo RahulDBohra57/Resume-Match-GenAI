@@ -20,12 +20,12 @@ The system is designed for job seekers, recruiters, and career coaches to assess
 
 
 ## Tech Stack:
-Layer:	Technology
-Frontend:	Streamlit
-LLM:	Google Gemini
-PDF Parsing:	PyPDF
-Prompt Engineering:	Custom ATS prompt
-Hosting:	Streamlit Cloud
+- Layer:	Technology
+- Frontend:	Streamlit
+- LLM:	Google Gemini
+- PDF Parsing:	PyPDF
+- Prompt Engineering:	Custom ATS prompt
+- Hosting:	Streamlit Cloud
 
 ## Use Cases:
 - Job seekers optimizing resumes
