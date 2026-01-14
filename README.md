@@ -1,7 +1,6 @@
 App Link: https://resume-match-genai.streamlit.app/
 
 ## AI Resume ATS Analyzer
--
 
 ### Gemini-Powered Resume vs Job Description Matching Engine
 
