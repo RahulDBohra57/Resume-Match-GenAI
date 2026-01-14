@@ -1,23 +1,17 @@
-# ============================================================
-# AI Resume ATS Analyzer (Gemini Powered)
-# ============================================================
+# Importing Libraries
 
 import streamlit as st
 import google.generativeai as genai
 from pypdf import PdfReader
 import io
 
-# ------------------------------------------------------------
 # Page Config
-# ------------------------------------------------------------
 st.set_page_config(
     page_title="AI Resume ATS Analyzer",
     layout="wide"
 )
 
-# ------------------------------------------------------------
 # Load Gemini API Key
-# ------------------------------------------------------------
 try:
     GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
 except:
@@ -28,9 +22,7 @@ genai.configure(api_key=GEMINI_API_KEY)
 
 model = genai.GenerativeModel("gemini-2.5-flash")
 
-# ------------------------------------------------------------
-# Helper: Read PDF
-# ------------------------------------------------------------
+# Read PDF
 def extract_text_from_pdf(uploaded_file):
     reader = PdfReader(uploaded_file)
     text = ""
@@ -38,9 +30,8 @@ def extract_text_from_pdf(uploaded_file):
         text += page.extract_text()
     return text
 
-# ------------------------------------------------------------
-# Prompt Builder
-# ------------------------------------------------------------
+# Prompt Builder 
+
 def build_prompt(job_desc, resume_text):
     return f"""
 You are an ATS and hiring manager.
@@ -63,9 +54,7 @@ Resume:
 {resume_text}
 """
 
-# ------------------------------------------------------------
 # UI
-# ------------------------------------------------------------
 st.title("AI Resume ATS Score Analyzer")
 st.subheader("Paste Job Description and Upload Resume to get ATS Score")
 
@@ -77,9 +66,7 @@ with col1:
 with col2:
     resume_file = st.file_uploader("Upload Resume (PDF only)", type=["pdf"])
 
-# ------------------------------------------------------------
 # Run Analysis
-# ------------------------------------------------------------
 if st.button("Analyze Resume"):
 
     if not job_desc or not resume_file:
@@ -93,18 +80,8 @@ if st.button("Analyze Resume"):
         prompt = build_prompt(job_desc, resume_text)
         response = model.generate_content(prompt)
 
-    # --------------------------------------------------------
     # Display Results
-    # --------------------------------------------------------
     st.success("Analysis Complete")
 
-    st.markdown("## 📊 ATS Analysis")
+    st.markdown("##ATS Analysis")
     st.write(response.text)
-
-    # Optional: Download Report
-    st.download_button(
-        label="Download ATS Report",
-        data=response.text,
-        file_name="ATS_Report.txt",
-        mime="text/plain"
-    )
