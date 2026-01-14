@@ -83,5 +83,5 @@ if st.button("Analyze Resume"):
     # Display Results
     st.success("Analysis Complete")
 
-    st.markdown("##ATS Analysis")
+    st.markdown("ATS Analysis:")
     st.write(response.text)
